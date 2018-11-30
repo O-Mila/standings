@@ -16,8 +16,9 @@ standingsApp.config(function($routeProvider){
 	}) 
 });
 
-// Controller
-standingsApp.controller("StandingsController", ["$scope", "$http", function($scope, $http){
+// Standings controller
+standingsApp.controller("StandingsController", ["$scope", "$http", "$routeParams",
+	function($scope, $http, $routeParams){
 	
 	$scope.addTeam = function(){
 		$scope.teams.push({
@@ -28,6 +29,7 @@ standingsApp.controller("StandingsController", ["$scope", "$http", function($sco
 		})
 
 		$scope.newTeam.name = "";
+		$scope.newTeam.cups = "";
 		$scope.newTeam.leagues = "";
 		$scope.newTeam.champions = "";
 
@@ -38,10 +40,17 @@ standingsApp.controller("StandingsController", ["$scope", "$http", function($sco
 		$scope.teams.splice(removedTeam, 1);
 	}
 
+	$scope.findTeam = function(team){
+		$scope.teamIndex = $scope.teams.indexOf(team);
+		console.log($scope.teamIndex);
+	}
+
 	// Get data
 	$http.get("data/teams.json").then(function(data){
 		$scope.teams = data.data;
 	});
+
+
 
 }]);
 

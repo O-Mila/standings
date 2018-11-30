@@ -12,7 +12,7 @@
     	<th>Remove</th>
   	</tr>
 	<tr ng-repeat="team in teams | orderBy: order">
-		<td>{{team.name}}</td>
+		<td ng-click="findTeam(team)"><a href="#!/teams">{{team.name}}</a></td>
 		<td>{{team.cups}}</td>
 		<td>{{team.leagues}}</td>
 		<td>{{team.champions}}</td> 
