@@ -1,0 +1,23 @@
+<table>
+	<tr>
+    	<th>Team</th>
+    	<th>Cups</th>
+     	<th>Leagues</th>
+    	<th>Champions</th>   	
+  	</tr>
+	<tr ng-repeat="team in teams">
+		<td>{{team.name}}</td>
+		<td>{{team.cups}}</td>
+		<td>{{team.leagues}}</td>
+		<td>{{team.champions}}</td> 
+		<span ng-click="removeTeam(team)">x</span>
+	</tr>
+</table>
+
+<form ng-submit="addTeam()">
+	<input type="text" placeholder="team name" ng-model="newTeam.name">
+	<input type="number" placeholder="cups won" ng-model="newTeam.cups">
+	<input type="number" placeholder="leagues won" ng-model="newTeam.leagues">
+	<input type="number" placeholder="champions won" ng-model="newTeam.champions">
+	<button>Add a new team</button>
+</form>		

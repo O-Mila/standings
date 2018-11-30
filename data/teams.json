@@ -1,0 +1,26 @@
+[
+{
+	"name": "Barça",
+	"cups": 30,
+	"leagues": 25,
+	"champions": 5
+},
+{
+	"name": "Madrid",
+	"cups": 20,
+	"leagues": 32,
+	"champions": 13
+},
+{
+	"name": "Espanyol",
+	"cups": 2,
+	"leagues": 0,
+	"champions": 0
+},
+{
+	"name": "Bacchiorta",
+	"cups": 143,
+	"leagues": 78,
+	"champions": 25
+}
+]

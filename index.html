@@ -4,16 +4,16 @@
 <head>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-route.min.js"></script>
+<script src="app.js"></script>
 
 	
 </head>
 
 <body>
-<h1>Welcome to the Standings Page</h1>
 
-<ul>
-	<li ng-repeat="team in teams"> {{ team }} </li>
-</ul>
+<header ng-include="views/header.html"></header>
+<main ng-view></main>
 
 </body>
 
