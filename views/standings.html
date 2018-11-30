@@ -1,23 +1,48 @@
-<table>
+<button class="ui blue button" ng-click="order = 'name'">Sort by Name</button>
+<button class="ui red button" ng-click="order = '-cups'">Sort by Cups</button>
+<button class="ui blue button" ng-click="order = '-leagues'">Sort by Leagues</button>
+<button class="ui red button" ng-click="order = '-champions'">Sort by Champions</button>
+
+<table class="ui celled table">
 	<tr>
     	<th>Team</th>
     	<th>Cups</th>
      	<th>Leagues</th>
-    	<th>Champions</th>   	
+    	<th>Champions</th>
+    	<th>Remove</th>
   	</tr>
-	<tr ng-repeat="team in teams">
+	<tr ng-repeat="team in teams | orderBy: order">
 		<td>{{team.name}}</td>
 		<td>{{team.cups}}</td>
 		<td>{{team.leagues}}</td>
 		<td>{{team.champions}}</td> 
-		<span ng-click="removeTeam(team)">x</span>
+		<td ng-click="removeTeam(team)">x</td>
 	</tr>
 </table>
 
 <form ng-submit="addTeam()">
-	<input type="text" placeholder="team name" ng-model="newTeam.name">
-	<input type="number" placeholder="cups won" ng-model="newTeam.cups">
-	<input type="number" placeholder="leagues won" ng-model="newTeam.leagues">
-	<input type="number" placeholder="champions won" ng-model="newTeam.champions">
-	<button>Add a new team</button>
-</form>		
+	
+	<div class="ui form">
+	  <div class="fields">
+	    <div class="field">
+	      <label>Team name</label>
+	      <input type="text" placeholder="team name" ng-model="newTeam.name">
+	    </div>
+	    <div class="field">
+	      <label>Cups won</label>
+	      <input type="number" placeholder="cups won" ng-model="newTeam.cups">
+	    </div>
+	    <div class="field">
+	      <label>Leagues won</label>
+	      <input type="number" placeholder="leagues won" ng-model="newTeam.leagues">
+	    </div>
+	    <div class="field">
+	      <label>Leagues won</label>
+	      <input type="number" placeholder="champions won" ng-model="newTeam.champions">
+	    </div>
+	    <button class="ui red button">Add a new team</button>
+	  </div>
+	</div>
+	
+</form>	
+
