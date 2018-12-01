@@ -1,17 +1,14 @@
-<button class="ui blue button" ng-click="order = 'name'">Sort by Name</button>
-<button class="ui red button" ng-click="order = '-cups'">Sort by Cups</button>
-<button class="ui blue button" ng-click="order = '-leagues'">Sort by Leagues</button>
-<button class="ui red button" ng-click="order = '-champions'">Sort by Champions</button>
+<input ng-model="search">
 
 <table class="ui celled table">
 	<tr>
-    	<th>Team</th>
-    	<th>Cups</th>
-     	<th>Leagues</th>
-    	<th>Champions</th>
+    	<th ng-click="order = 'name'">Team</th>
+    	<th ng-click="order = '-cups'">Cups</th>
+     	<th ng-click="order = '-leagues'">Leagues</th>
+    	<th ng-click="order = '-champions'">Champions</th>
     	<th>Remove</th>
   	</tr>
-	<tr ng-repeat="team in teams | orderBy: order">
+	<tr ng-repeat="team in teams | orderBy: order | filter: search">
 		<td ng-click="findTeam(team)"><a href="#!/teams">{{team.name}}</a></td>
 		<td>{{team.cups}}</td>
 		<td>{{team.leagues}}</td>
