@@ -7,7 +7,7 @@ standingsApp.config(function($routeProvider){
 		templateUrl: "views/standings.html",
 		controller: "StandingsController"
 	})
-	.when("/teams", {
+	.when("/teams/:index", {
 		templateUrl: "views/teams.html",
 		controller: "StandingsController"
 	})
@@ -40,17 +40,12 @@ standingsApp.controller("StandingsController", ["$scope", "$http", "$routeParams
 		$scope.teams.splice(removedTeam, 1);
 	}
 
-	$scope.findTeam = function(team){
-		$scope.teamIndex = $scope.teams.indexOf(team);
-		console.log($scope.teamIndex);
-	}
-
 	// Get data
 	$http.get("data/teams.json").then(function(data){
 		$scope.teams = data.data;
 	});
 
-
+	$scope.index = $routeParams.index;
 
 }]);
 

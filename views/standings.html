@@ -1,4 +1,4 @@
-<input ng-model="search">
+<input ng-model="search" placeholder="search">
 
 <table class="ui celled table">
 	<tr>
@@ -9,7 +9,7 @@
     	<th>Remove</th>
   	</tr>
 	<tr ng-repeat="team in teams | orderBy: order | filter: search">
-		<td ng-click="findTeam(team)"><a href="#!/teams">{{team.name}}</a></td>
+		<td><a ng-href="#!/teams/{{teams.indexOf(team)}}">{{team.name}}</a></td>
 		<td>{{team.cups}}</td>
 		<td>{{team.leagues}}</td>
 		<td>{{team.champions}}</td> 
